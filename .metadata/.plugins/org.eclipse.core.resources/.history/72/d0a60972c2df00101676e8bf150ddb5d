@@ -1,0 +1,31 @@
+package com.setterExample;
+
+import org.springframework.stereotype.Component;
+
+@Component
+interface MusicPlayer{
+	
+	String audioType();
+	
+}
+
+class mp3 implements MusicPlayer{
+	
+	@Override
+	public String audioType() {
+		
+		return "The audio type is mp3";
+		
+	}
+}
+
+
+class wav implements MusicPlayer{
+	
+	@Override
+	public String audioType() {
+		
+		return "The audio type is wav";
+		
+	}
+}

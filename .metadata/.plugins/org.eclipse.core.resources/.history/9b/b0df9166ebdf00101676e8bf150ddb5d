@@ -1,0 +1,5 @@
+package com.beanlifecycle;
+
+public class Book {
+
+}

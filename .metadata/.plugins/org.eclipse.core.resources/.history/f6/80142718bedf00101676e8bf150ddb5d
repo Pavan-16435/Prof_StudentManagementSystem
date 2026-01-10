@@ -1,0 +1,12 @@
+package com.setterExample;
+
+public class MusicPlayer {
+	
+	
+	public String audioType() {
+		
+		return "The audio type is";
+		
+	}
+
+}

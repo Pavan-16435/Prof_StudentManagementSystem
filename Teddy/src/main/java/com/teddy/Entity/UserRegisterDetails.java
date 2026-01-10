@@ -1,0 +1,83 @@
+package com.teddy.Entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+public class UserRegisterDetails {
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String firstName;
+	private String lastName;
+	private String mobileNumber;
+	private String address;
+	private String gender;
+	
+	public Long getId() {
+		return id;
+	}
+	
+	public void setFirstName(String firstName) {
+		this.firstName=firstName;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	public void setLastName(String lastName) {
+		this.lastName=lastName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber=mobileNumber;
+	}
+	
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+	
+	public void setGender(String gender) {
+		this.gender=gender;
+	}
+	
+	public String getGender() {
+		return gender;
+	}
+	
+	public void setAddress(String address) {
+		this.address=address;
+	}
+	
+	public String getAddress() {
+		return address;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+

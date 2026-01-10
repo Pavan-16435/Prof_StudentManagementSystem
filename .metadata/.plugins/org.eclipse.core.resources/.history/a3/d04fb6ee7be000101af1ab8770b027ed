@@ -1,0 +1,26 @@
+package com.teddy.ServiceImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.teddy.Repository.UserRegisterRepository;
+import com.teddy.Service.UserRegisterService;
+
+@Service
+public class UserRegisterServiceImpl implements UserRegisterService{
+
+	@Autowired
+	private UserRegisterRepository userRegisterRepositoy;
+	
+	
+	
+	@Override
+	public String insertUserRegister(UserRequstDto userRegisterDetails) {
+		
+		userRegisterRepositoy.save(userRegisterDetails);
+		
+		return "saved succuessfully";
+	}
+	
+
+}

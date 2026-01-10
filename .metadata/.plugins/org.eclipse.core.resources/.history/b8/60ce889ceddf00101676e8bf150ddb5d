@@ -1,0 +1,20 @@
+package com.beanscopes;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Manager {
+	
+	public Manager() {
+		
+		System.out.println("I am in manager constructor");
+		
+	}
+	
+	public void work() {
+		
+		System.out.println("I am doing work ");
+		
+	}
+
+}

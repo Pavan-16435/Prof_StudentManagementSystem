@@ -1,0 +1,28 @@
+package com.beanscopes;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+
+
+//@ComponentScan(basePackages = "com.beanscopes")
+public class BeanscopesApplication {
+
+	public static void main(String[] args) {
+		
+		ApplicationContext context = new AnnotationConfigApplicationContext(BeanscopesApplication.class);
+		Manager m = context.getBean(Manager.class);
+		m.work();
+		System.out.println(m.hashCode());
+		
+		Manager m1 = context.getBean(Manager.class);
+		m1.work();
+		System.out.println(m1.hashCode());
+		
+		
+		
+	}
+
+}

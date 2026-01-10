@@ -1,0 +1,30 @@
+package com.sts.Model;
+
+import java.util.List;
+
+public class ResponseMessage {
+
+	public ResponseMessage(int statusCode, String status, String message) {
+		super();
+		this.statusCode = statusCode;
+		this.status = status;
+		this.message = message;
+	}
+	public ResponseMessage(int statusCode, String status, Object data, String message, List<?> list) {
+		super();
+		this.statusCode = statusCode;
+		this.status = status;
+		this.data = data;
+		this.message = message;
+		this.list = list;
+	}
+	private int statusCode;
+	private String status;
+	private Object data;
+	private String message;
+	private List<?> list;
+	
+	
+	
+	
+}

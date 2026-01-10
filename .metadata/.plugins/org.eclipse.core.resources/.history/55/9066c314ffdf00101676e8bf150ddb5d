@@ -1,0 +1,18 @@
+package com.teddy.Entity;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class UserRegisterDetails {
+	
+	private String firstName;
+	private String lastName;
+	private String mobileNumber;
+	private String address;
+	private String gender;
+	
+	public void setFirstName(firstName firstName) {
+		
+	}
+
+}

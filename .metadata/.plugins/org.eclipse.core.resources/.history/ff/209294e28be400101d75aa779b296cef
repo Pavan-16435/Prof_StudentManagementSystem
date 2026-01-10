@@ -1,0 +1,5 @@
+package com.userAccount.model;
+
+public class ResponseMessage {
+
+}

@@ -1,0 +1,73 @@
+package com.userAccount.model;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+	"statusCode","status","message","data","list"
+})
+public class ResponseMessage {
+	
+	public int getStatusCode() {
+		return statusCode;
+	}
+	public void setStatusCode(int statusCode) {
+		this.statusCode = statusCode;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public Object getData() {
+		return data;
+	}
+	public void setData(Object data) {
+		this.data = data;
+	}
+	public List<?> getList() {
+		return list;
+	}
+	public void setList(List<?> list) {
+		this.list = list;
+	}
+	public ResponseMessage(int statusCode, String status, String message, Object data, List<?> list) {
+		super();
+		this.statusCode = statusCode;
+		this.status = status;
+		this.message = message;
+		this.data = data;
+		this.list = list;
+	}
+	public ResponseMessage(int statusCode, String status, String message, Object data) {
+		super();
+		this.statusCode = statusCode;
+		this.status = status;
+		this.message = message;
+		this.data = data;
+	}
+	public ResponseMessage(int statusCode, String status, String message) {
+		super();
+		this.statusCode = statusCode;
+		this.status = status;
+		this.message = message;
+	}
+	private int statusCode;
+	private String status;
+	private String message;
+	private Object data;
+	private List<?> list;
+	
+
+}

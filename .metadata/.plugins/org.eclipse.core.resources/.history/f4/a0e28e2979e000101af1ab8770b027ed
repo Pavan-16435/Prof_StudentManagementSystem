@@ -1,0 +1,5 @@
+package com.teddy.Model;
+
+public class UserRequestDto {
+
+}

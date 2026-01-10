@@ -1,0 +1,5 @@
+package com.sts.Repository;
+
+public interface StudentRegisterRepo {
+
+}

@@ -1,0 +1,11 @@
+package com.userAccount.ServiceImpl;
+
+import org.springframework.stereotype.Service;
+
+import com.userAccount.Service.UserRegisterService;
+
+
+@Service
+public class UserRegisterServiceImpl implements UserRegisterService{
+
+}

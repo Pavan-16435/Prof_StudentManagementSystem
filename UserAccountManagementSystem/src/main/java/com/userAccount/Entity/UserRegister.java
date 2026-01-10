@@ -1,0 +1,59 @@
+package com.userAccount.Entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+
+@Entity
+
+public class UserRegister {
+
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	private Integer id;
+	
+	public Integer getid() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public UserRegister(Integer id, String name, String email, String mobileNumber, String gender) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.mobileNumber = mobileNumber;
+		this.gender = gender;
+	}
+	private String name;
+	private String email;
+	private String mobileNumber;
+	private String gender;
+	
+	
+}

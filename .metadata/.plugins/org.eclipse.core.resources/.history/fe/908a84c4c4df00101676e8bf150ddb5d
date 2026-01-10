@@ -1,0 +1,25 @@
+package com.setterExample;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+
+@Component
+public class AudioTypes {
+	
+	@Qualifier("mp3")
+	private MusicPlayer musicPlayer;
+	
+	
+	@Autowired
+	public AudioTypes(MusicPlayer musicPlayer) {
+		this.musicPlayer=musicPlayer;
+	}
+
+	public void data() {
+		System.out.println(musicPlayer.audioType());
+	}
+	
+	
+}

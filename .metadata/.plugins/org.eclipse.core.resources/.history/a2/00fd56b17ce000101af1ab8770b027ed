@@ -1,0 +1,36 @@
+package com.teddy.ServiceImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.teddy.Entity.UserRegisterDetails;
+import com.teddy.Model.UserRequestDto;
+import com.teddy.Repository.UserRegisterRepository;
+import com.teddy.Service.UserRegisterService;
+
+@Service
+public class UserRegisterServiceImpl implements UserRegisterService{
+
+	@Autowired
+	private UserRegisterRepository userRegisterRepositoy;
+
+	@Override
+	public UserRegister insertUserRegister(UserRequestDto userRequestDto) {
+		
+		UserRegisterDetails user = new UserRegisterDetails();
+		user.setFirstName(userRequestDto.getFirstName());
+		user.setLastName(userRequestDto.getLastName());
+		user.setMobileNumber(userRequestDto.getMobileNumber());
+		user.setAddress(userRequestDto.getAddress());
+		user.setGender(userRequestDto.getGender());
+		
+		userRegisterRepositoy.save(user);
+		
+		return user;
+	}
+
+
+
+	
+
+}

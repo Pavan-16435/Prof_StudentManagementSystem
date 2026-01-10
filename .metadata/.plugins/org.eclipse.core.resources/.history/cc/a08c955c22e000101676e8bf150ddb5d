@@ -1,0 +1,27 @@
+package com.teddy.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.teddy.Entity.UserRegisterDetails;
+import com.teddy.Service.UserRegisterService;
+
+@RestController
+public class UserRegisterController {
+	
+	@Autowired
+	private UserRegisterService userRegisterService;
+	
+	@PostMapping("/userregister")
+	public String createUser(@RequestBody UserRegisterDetails userRegisterDetails) {
+		
+		userRegisterService.insertUserRegister(userRegisterDetails);
+		
+		return "User register successfully";
+		
+		
+	}
+
+}

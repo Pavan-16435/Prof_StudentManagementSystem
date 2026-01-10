@@ -1,0 +1,5 @@
+package com.teddy.Repository;
+
+public interface UserRegisterRepository {
+
+}

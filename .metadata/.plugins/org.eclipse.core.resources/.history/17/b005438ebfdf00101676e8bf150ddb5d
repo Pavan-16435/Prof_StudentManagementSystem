@@ -1,0 +1,18 @@
+package com.setterExample;
+
+public class MusicPlayer {
+	
+	
+	public String mp3() {
+		
+		return "The audio type is mp3";
+		
+	}
+
+	public String wav() {
+		
+		return "The audio type is wav";
+		
+	}
+	
+}

@@ -1,0 +1,10 @@
+package com.userAccount.Service;
+
+import com.userAccount.Entity.UserRegister;
+
+public interface UserRegisterService {
+
+	
+	public UserRegister registerUser(UserRegister userRegister);
+	
+}

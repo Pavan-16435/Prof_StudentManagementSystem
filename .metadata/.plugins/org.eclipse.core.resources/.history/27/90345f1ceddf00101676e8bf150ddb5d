@@ -1,0 +1,15 @@
+package com.beanscopes;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ComponentScan(basePackages = "com.beanscopes")
+public class BeanscopesApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(BeanscopesApplication.class, args);
+	}
+
+}

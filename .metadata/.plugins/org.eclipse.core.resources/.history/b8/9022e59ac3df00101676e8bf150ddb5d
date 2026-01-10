@@ -1,0 +1,34 @@
+package com.setterExample;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+
+interface MusicPlayer{
+	
+	String audioType();
+	
+}
+
+@Component
+class mp3 implements MusicPlayer{
+	
+	@Override
+	public String audioType() {
+		
+		return "The audio type is mp3";
+		
+	}
+}
+
+@Component
+@Qualifier
+class wav implements MusicPlayer{
+	
+	@Override
+	public String audioType() {
+		
+		return "The audio type is wav";
+		
+	}
+}
