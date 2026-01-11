@@ -1,5 +1,7 @@
 package com.sts.ServiceImpl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.sts.Entity.StudentDetails;
@@ -16,6 +18,8 @@ public class StudentRegisterServiceImpl implements StudentRegisterService {
 	public StudentRegisterServiceImpl(StudentRegisterRepo studentRegisterRepo) {
 		this.studentRegisterRepo=studentRegisterRepo;
 	}
+	
+	
 	
 	
 	@Override
@@ -37,5 +41,83 @@ public class StudentRegisterServiceImpl implements StudentRegisterService {
 		return studentRegisterRepo.save(student);
 		
 	}
+	
+	
+
+
+	@Override
+	public StudentDetails updateStudent(Integer id, StudentDto studentDto) {
+		if (id == null || id <= 0) {
+	        throw new IllegalArgumentException("Invalid student ID");
+	    }
+
+	    if (studentDto == null) {
+	        throw new IllegalArgumentException("Student data cannot be null");
+	    }
+	    
+	    StudentDetails existingStudent = studentRegisterRepo.findById(id)
+	            .orElseThrow(() -> new IllegalArgumentException("Student not found with ID: " + id));
+		
+	    if (studentDto.getFirstName() != null && !studentDto.getFirstName().isEmpty()) {
+	        existingStudent.setFirstName(studentDto.getFirstName());
+	    }
+
+	    if (studentDto.getLastName() != null && !studentDto.getLastName().isEmpty()) {
+	        existingStudent.setLastName(studentDto.getLastName());
+	    }
+	    
+	    if (studentDto.getEmail() != null && !studentDto.getEmail().isEmpty()) {
+	        existingStudent.setEmail(studentDto.getEmail());
+	    }
+
+	    if (studentDto.getMobileNo() != null && !studentDto.getMobileNo().isEmpty()) {
+	        existingStudent.setMobileNo(studentDto.getMobileNo());
+	    }
+	    
+	    return studentRegisterRepo.save(existingStudent);
+	}
+	
+	
+	
+	
+	@Override
+	public void deleteStudent(Integer id) {
+	    if (id == null || id <= 0) {
+	        throw new IllegalArgumentException("Invalid student ID");
+	    }
+	    
+	    boolean exists = studentRegisterRepo.existsById(id);
+	    if (!exists) {
+	        throw new IllegalArgumentException("Student not found with ID: " + id);
+	    }
+
+	    studentRegisterRepo.deleteById(id);
+	}
+	
+	
+	
+	
+	
+	@Override
+	public StudentDetails getStudentById(Integer id) {
+	    if (id == null || id <= 0) {
+	        throw new IllegalArgumentException("Invalid student ID");
+	    }
+
+	    return studentRegisterRepo.findById(id)
+	            .orElseThrow(() -> new IllegalArgumentException("Student not found with ID: " + id));
+	}
+
+	
+	
+	
+	@Override
+	public List<StudentDetails> getAllStudents() {
+		
+		
+	    return studentRegisterRepo.findAll();
+	}
+
+
 
 }
