@@ -1,9 +1,9 @@
 package com.sts.ServiceImpl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sts.Entity.StudentDetails;
+import com.sts.Model.StudentDto;
 import com.sts.Repository.StudentRegisterRepo;
 import com.sts.Service.StudentRegisterService;
 
@@ -19,9 +19,22 @@ public class StudentRegisterServiceImpl implements StudentRegisterService {
 	
 	
 	@Override
-	public StudentDetails insertStudent(StudentDetails studentDetails) {
+	public StudentDetails insertStudent(StudentDto studentDto) {
 		
-		return studentRegisterRepo.save(studentDetails);
+		if(studentDto == null) {
+			throw new IllegalArgumentException("Student details cannot be empty");
+		}
+		if(studentDto.getEmail() == null || studentDto.getFirstName() == null) {
+			throw new IllegalArgumentException("Name or email cannot be empty");
+		}
+		
+		StudentDetails student = new StudentDetails();
+		student.setFirstName(studentDto.getFirstName());
+		student.setLastName(studentDto.getLastName());
+		student.setEmail(studentDto.getEmail());
+		student.setMobileNo(studentDto.getMobileNo());
+		
+		return studentRegisterRepo.save(student);
 		
 	}
 

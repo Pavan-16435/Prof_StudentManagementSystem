@@ -1,17 +1,8 @@
-package com.sts.Entity;
+package com.sts.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 
-@Entity
-public class StudentDetails {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+public class StudentDto {
 	
 	@NotBlank(message = "Name cannot be empty")
 	private String firstName;
@@ -21,7 +12,7 @@ public class StudentDetails {
 	@NotBlank(message = "Name cannot be empty")
 	private String mobileNo;
 	
-	public StudentDetails() {
+	public StudentDto() {
 		super();
 	}
 	
@@ -32,7 +23,7 @@ public class StudentDetails {
 	}
 	
 	
-	public StudentDetails(String firstName, String lastName, String email, String mobileNo) {
+	public StudentDto(String firstName, String lastName, String email, String mobileNo) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -40,10 +31,6 @@ public class StudentDetails {
 		this.mobileNo = mobileNo;
 	}
 
-	
-	public int getId() {
-		return id;
-	}
 	public String getFirstName() {
 		return firstName;
 	}

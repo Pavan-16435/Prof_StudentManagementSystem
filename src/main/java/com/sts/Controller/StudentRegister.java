@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sts.Entity.StudentDetails;
 import com.sts.Model.ResponseMessage;
+import com.sts.Model.StudentDto;
 import com.sts.Service.StudentRegisterService;
+import com.sts.Utility.Constants;
+
+import jakarta.validation.Valid;
 
 @RestController
 public class StudentRegister {
@@ -19,13 +23,26 @@ public class StudentRegister {
 	private StudentRegisterService studentRegisterService;
 	
 	@PostMapping("/studentRegister")
-	public ResponseEntity<ResponseMessage> studentRegister(@RequestBody StudentDetails studentDetails){
+	public ResponseEntity<ResponseMessage> studentRegister(@Valid @RequestBody StudentDto studentDto){
 		
-		StudentDetails insertStudent = studentRegisterService.insertStudent(studentDetails);
+		if(studentDto.getEmail() == null || studentDto.getFirstName() == null || studentDto.getEmail().isEmpty() || studentDto.getFirstName().isEmpty()) {
+			return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(new ResponseMessage(400,Constants.failed,"please provide required fields"));
+		}
 		
-		return ResponseEntity
-		        .status(HttpStatus.CREATED)
-		        .body(new ResponseMessage(201, "success", "Student registered successfully"));
+		StudentDetails insertStudent = studentRegisterService.insertStudent(studentDto);
+		
+		if(insertStudent != null) {
+			
+			return ResponseEntity
+			        .status(HttpStatus.CREATED)
+			        .body(new ResponseMessage(201,Constants.success, "Student registered successfully"));
+			
+		}
+		else {
+			return ResponseEntity
+			        .status(HttpStatus.BAD_REQUEST)
+			        .body(new ResponseMessage(404,Constants.failure, "Student cannot be registered"));
+		}
 
 	}
 	
