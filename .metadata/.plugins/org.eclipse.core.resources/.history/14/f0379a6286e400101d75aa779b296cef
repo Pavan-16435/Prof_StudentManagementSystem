@@ -1,5 +1,0 @@
-package com.userAccount.Repository;
-
-public interface UserRegisterRepo {
-
-}

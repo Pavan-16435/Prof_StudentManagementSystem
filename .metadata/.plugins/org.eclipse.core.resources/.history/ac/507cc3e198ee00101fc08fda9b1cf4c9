@@ -1,0 +1,32 @@
+package com.sts.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sts.Entity.StudentDetails;
+import com.sts.Model.ResponseMessage;
+import com.sts.Service.StudentRegisterService;
+
+@RestController
+public class StudentRegister {
+	
+	
+	@Autowired
+	private StudentRegisterService studentRegisterService;
+	
+	@PostMapping("/studentRegister")
+	public ResponseEntity<ResponseMessage> studentRegister(@RequestBody StudentDetails studentDetails){
+		
+		StudentDetails insertStudent = studentRegisterService.insertStudent(studentDetails);
+		
+		return ResponseEntity
+		        .status(HttpStatus.CREATED)
+		        .body(new ResponseMessage(201, "success", "Student registered successfully"));
+
+	}
+	
+}

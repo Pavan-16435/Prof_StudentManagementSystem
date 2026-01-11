@@ -1,5 +1,0 @@
-package com.userAccount.Service;
-
-public interface UserRegisterService {
-
-}

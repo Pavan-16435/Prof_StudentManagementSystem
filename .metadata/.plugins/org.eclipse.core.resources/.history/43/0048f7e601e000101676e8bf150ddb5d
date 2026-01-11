@@ -1,9 +1,0 @@
-package com.teddy.Repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.teddy.Entity.UserRegisterDetails;
-
-public interface UserRegisterRepository extends JpaRepository<UserRegisterDetails,Long>{
-
-}

@@ -1,9 +1,0 @@
-package com.userAccount.Repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.userAccount.Entity.UserRegister;
-
-public interface UserRegisterRepo extends JpaRepository<UserRegister,Integer>{
-
-}

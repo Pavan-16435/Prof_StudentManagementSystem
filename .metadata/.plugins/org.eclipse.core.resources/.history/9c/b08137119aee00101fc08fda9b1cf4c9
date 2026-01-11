@@ -1,0 +1,30 @@
+package com.sts.ServiceImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sts.Entity.StudentDetails;
+import com.sts.Repository.StudentRegisterRepo;
+import com.sts.Service.StudentRegisterService;
+
+@Service
+public class StudentRegisterServiceImpl implements StudentRegisterService {
+
+	
+	private StudentRegisterRepo studentRegisterRepo;
+	
+	public StudentRegisterServiceImpl(StudentRegisterRepo studentRegisterRepo) {
+		this.studentRegisterRepo=studentRegisterRepo;
+	}
+	
+	
+	@Override
+	public StudentDetails insertStudent(StudentDetails studentDetails) {
+		
+		
+		
+		return studentRegisterRepo.save(studentDetails);
+		
+	}
+
+}
